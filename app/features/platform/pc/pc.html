@@ -1,0 +1,14 @@
+<div class="pt-view">
+	<nav class="pf-nav">
+        <span class="cm-mark-tag">&nbsp;</span>
+        <span class="nav-text">浏览器</span>
+        <span class="nav-text cm-link-text" ui-sref="shell.platform.mobile.service({mobileType: 'service', range: 'myservice', action: 'list'})">真机</span>
+    </nav>
+    <div>
+        <nav>
+            <span ng-class="{'service': 'active'}[platformPc.platformInfo.curTab]" ng-click="platformPc.platformInfo.etFunc.switchTab('service')">服务</span>
+            <span ng-class="{'class': 'active'}[platformPc.platformInfo.curTab]" ng-click="platformPc.platformInfo.etFunc.switchTab('class')">公共</span>
+        </nav>
+        <div ui-view="platformPcCt"></div>
+    </div>
+</div>

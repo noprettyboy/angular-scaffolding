@@ -1,0 +1,117 @@
+// 基础颜色变量
+@color: #575757;
+@reverse-color: #F2F2F2;
+@primary-color: rgba(24, 25, 74, .9); //#18194A;
+@primary-color1: #ECECFF;
+@primary-color2: #FFFAFA;
+@primary-color3: #F5FFFA;
+@primary-color4: #F5FBFF;
+@primary-color5: #FFD39B;
+@primary-color6: #9069C3;
+@primary-color7: #563d7c;
+@primary-color8: #8968CD;
+@hover-color: #447ed9;
+@active-color: #18194A;
+@active-color2: #3498db;
+@link-color: #447ed9;
+@warn-color: #00bbee;
+@warn-color2: #FFA500;
+@alarm-color: #FF0000;
+@succ-color: #7CCD7C;
+
+// 背景颜色变量
+@bg-color: @color;
+@bg-reverse-color: @reverse-color;
+@bg-primary-color: @primary-color7;
+@bg-active-color: @active-color;
+@bg-hover-color: @hover-color;
+
+// 字体相关变量
+@font-color: @color;
+@font-reverse-color: @reverse-color;
+@font-hover-color: @hover-color;
+@font-active-color: @active-color2;
+@font-link-color: @link-color;
+@font-primary-color: @primary-color;
+@font-warn-color: @warn-color;
+@font-alarm-color: @alarm-color;
+@font-succ-color: @succ-color;
+@font-size-1: 12px;
+@font-size: 14px;
+@font-size1: 16px;
+@font-size2: 18px;
+
+// 高度相关变量
+@height: 30px;
+@line-height: 30px;
+
+// 边框相关变量及函数
+@border-type: solid;
+@border-width: 1px;
+@border-color: #DDD;
+@border-hover-color: @hover-color;
+@border-active-color: @active-color;
+@border-link-color: @link-color;
+@border-radius: 5px;
+.border (@border-type: @border-type; @border-width: @border-width; @border-color: @border-color) {
+    border: @border-type @border-width @border-color;
+}
+.border-t-b (@border-type: @border-type; @border-width: @border-width; @border-color: @border-color) {
+    border-top: @border-type @border-width @border-color;
+    border-bottom: @border-type @border-width @border-color;
+}
+.border-t-b (@border-type: @border-type; @border-width: @border-width; @border-color: @border-color) {
+    border-left: @border-type @border-width @border-color;
+    border-right: @border-type @border-width @border-color;
+}
+
+// 内边距相关变量及函数
+@padding-value: 5px;
+@padding-top: @padding-value;
+@padding-bottom: @padding-value;
+@padding-left: @padding-value;
+@padding-right: @padding-value;
+@padding-top-bottom: @padding-value;
+@padding-left-right: @padding-value;
+.padding (@padding-top-bottom: @padding-top-bottom; @padding-left-right: @padding-left-right;) {
+    padding: @padding-top-bottom @padding-left-right;
+}
+.padding-t-b (@padding-top: @padding-top; @padding-bottom: @padding-bottom;) {
+    padding-top: @padding-top;
+    padding-bottom: @padding-bottom;
+}
+.padding-l-r (@padding-left: @padding-left; @padding-right: @padding-right) {
+    padding-left: @padding-left;
+    padding-right: @padding-right;
+}
+
+// 外边距相关变量及函数
+@margin-value: 5px;
+@margin-top: @margin-value;
+@margin-bottom: @margin-value;
+@margin-top-bottom: @margin-value;
+@margin-left: @margin-value;
+@margin-right: @margin-value;
+@margin-left-right: auto;
+.margin (@margin-top-bottom: @margin-top-bottom; @margin-left-right: @margin-left-right;) {
+    margin: @margin-top-bottom @margin-left-right;
+}
+.margin-t-b (@margin-top: @margin-top; @margin-bottom: @margin-bottom;) {
+    margin-top: @margin-top;
+    margin-bottom: @margin-bottom;
+}
+.margin-l-r (@margin-left: @margin-left; @margin-right: @margin-right) {
+    margin-left: @margin-left;
+    margin-right: @margin-right;
+}
+
+// 渐变变量及函数
+@trans-elem: all; 
+@trans-time: .25s; 
+@trans-type: linear;
+.transition (@trans-elem: @trans-elem; @trans-time: @trans-time; @trans-type: @trans-type) {
+    -webkit-transition: @trans-elem @trans-time @trans-type;
+       -moz-transition: @trans-elem @trans-time @trans-type;
+         -o-transition: @trans-elem @trans-time @trans-type;
+            transition: @trans-elem @trans-time @trans-type;
+}

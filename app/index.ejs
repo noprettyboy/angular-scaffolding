@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="app">
+    <head>
+        <meta charset="utf8">
+        <title>MVP平台</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <link rel="icon" href="/favicon.png" type="image/x-icon" />
+        <!-- <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" /> -->
+    </head>
+    <body>
+        <!-- <div class="wrapper" ng-class="{'index-wrapper': isIndexView}"> -->
+        <div class="wrapper" ng-cloak ng-class="{'shell.index': 'index-wrapper'}[curRouterName]">
+            <div ui-view="header" class="header-part"></div>
+            <div ui-view="content" class="main-content-part"></div>
+            <!-- <div ui-view="content" class="main-content" ng-style="contentStyle"></div> -->
+            <div ui-view="footer" class="footer-part"></div>
+        </div>
+        <!-- global loading -->
+        <div class="loading" ng-show="showLoading">
+            <div class="spinner">
+                <div class="spinner-container container1">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container2">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+                <div class="spinner-container container3">
+                    <div class="circle1"></div>
+                    <div class="circle2"></div>
+                    <div class="circle3"></div>
+                    <div class="circle4"></div>
+                </div>
+            </div>
+        </div>
+        <!-- 全局弹窗 -->
+        <div ng-show="showGlobalPopup" style="display: none;">
+            <div id="error-message" class="modal fade">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header" ng-show="noAction!==true">
+                            <button type="button" class="close" ng-click="closePopup()" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" ng-bind="title"></h4>
+                        </div>
+                        <div class="modal-body container-fluid">
+                            {{popupMsg}}
+                            <!-- <div ng-if="noAuth">请联系: <a href="mailto:yanpeng01@baidu.com">haichuan-help@baidu.com</a></div> -->
+                        </div>
+                        <!--    <div class="alert alert-danger prompt-msg" role="alert" ng-show="!!popupMsg" title="{{popupMsg}}">
+                            {{popupMsg}}
+                            </div> -->
+                        <div class="modal-footer" ng-show="noAction!==true">
+                        <!-- <div class="modal-footer" ng-show="!info.noAction"> -->
+                            <button ng-click="closePopup()" type="button" class="btn" data-dismiss="modal" ng-show="noAction!=='close'">关闭</button>
+                            <button ng-click="onConfirm()" type="button" class="btn btn-primary" ng-show="noAction!=='confirm'">确认</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% if (htmlWebpackPlugin.options.window) { %>
+        <script>
+            <% for (var varName in htmlWebpackPlugin.options.window) { %>
+              window['<%=varName%>'] = <%= JSON.stringify(htmlWebpackPlugin.options.window[varName]) %>;
+            <% } %>
+        </script>
+        <% } %>
+        <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+        <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+        <% } %>
+        <% if (htmlWebpackPlugin.options.devServer) { %>
+        <script src="<%= htmlWebpackPlugin.options.devServer%>/webpack-dev-server.js"></script>
+        <% } %>
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement('script');
+              hm.src = 'https://hm.baidu.com/hm.js?26b2daae13a058514f9a9f416149df83';
+              var s = document.getElementsByTagName('script')[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    </body>
+</html>

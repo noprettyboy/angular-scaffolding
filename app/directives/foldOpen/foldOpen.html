@@ -1,0 +1,9 @@
+<div class="fold-open-box" ng-class="{'left': 'fo-left', 'right': 'fo-right', 'up': 'fo-up', 'down': 'fo-down'}[foldOpenInfo.type]">
+    <span class="fold-open-tag" ng-class="{'open': 'open-tag', 'fold': 'fold-tag'}[foldOpenInfo.status]" ng-click="foldOpen()">
+        <i class="fa fa-lg fa-angle-double-left" ng-if="foldOpenInfo.type=='left'"></i>
+        <i class="fa fa-lg fa-angle-double-right" ng-if="foldOpenInfo.type=='right'"></i>
+        <i class="fa fa-lg fa-angle-double-up" ng-if="foldOpenInfo.type=='up'"></i>
+        <i class="fa fa-lg fa-angle-double-down" ng-if="foldOpenInfo.type=='down'"></i>
+    </span>
+    <div class="fold-open-ct" ng-transclude></div>
+</div>

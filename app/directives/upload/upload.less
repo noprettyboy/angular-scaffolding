@@ -1,0 +1,84 @@
+@import (reference) '../../style/variables.less';
+
+@upload-box-height: 30px;
+.upload-box {
+    position: relative;
+    background-color: #F5FBFF;
+    min-width: 380px;
+    .file-elem {
+        display: none;
+    }
+    .file-path {
+        display: inline-block;
+        vertical-align: top;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 100px;
+        max-width: 400px;
+        margin-right: 5px;
+        padding: 0 @padding-value;
+        height: @upload-box-height;
+        line-height: @upload-box-height;
+        // border-radius: @border-radius;
+        // border: @border-type @border-width @border-color;
+        .error {
+            color: #FF0000;
+        }
+        .correct {
+            color: @font-active-color;
+        }
+        .success-watch {
+            color: @font-link-color;
+            .transition;
+            .img-detail {
+                display: none;
+                position: absolute;
+                width: 400px;
+                height: 400px;
+                overflow: auto;
+                z-index: 100;
+                background-color: #FFF;
+                margin-left: -70px;
+                border: @border-type @border-width @warn-color2;
+            }
+            &:hover {
+                // .img-detail {
+                //     display: block;
+                // }
+            }
+            // &:hover {
+            //     .img-detail {
+            //         display: block;
+            //         box-sizing: border-box;
+            //         width: 300px;
+            //         height: 400px;
+            //         line-height: 396px;
+            //         z-index: 300;
+            //         margin-top: -200px;
+            //         margin-left: -150px;
+            //         background-color: @bg-reverse-color;
+            //         border: @border-type 2px @border-active-color;
+            //         img {
+            //             width: 50px;
+            //         }
+            //     }
+            // }
+        }
+    }
+    .cm-btn {
+        vertical-align: top;
+    }
+    .after-upload-note {
+        display: inline-block;
+        vertical-align: top;
+        height: @upload-box-height;
+        line-height: @upload-box-height;
+    }
+    &.watch-img:hover {
+        .img-detail {
+            display: block;    
+        }
+    }
+
+}

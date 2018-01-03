@@ -1,0 +1,5 @@
+<div class="ui-tree" ng-class="{'ui-tree-show-line': showLine}">
+    <ul>
+        <tree-node ng-repeat="node in nodes track by $index" ng-init="node.$level = 1"></tree-node>
+    </ul>
+</div>

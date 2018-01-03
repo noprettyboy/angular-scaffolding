@@ -1,0 +1,29 @@
+<header class="header" ng-cloak ng-class="{true: 'index-header', false: 'other-header'}[curRouterName=='shell.index']">
+    <div class="header-ct">
+        <a class="logo" href="#/index"></a>
+        <ul class="menu">
+            <li ui-sref-active="active" ng-class="{true: 'active'}[item.id==curRouterName.split('.')[1]]" ng-repeat="item in shell.headerItems">
+                <!-- <a ui-sref="shell.{{item.id}}">{{item.name}}</a> -->
+                <a ng-click="shell.menuSwitch(item.id, curRouterName)">{{item.name}}</a>
+                <section class="sub-menu" ng-if="item.children!==undefined&&item.children.length>0">
+                    <div ng-repeat="subitem in item.children">
+                        <a ng-click="shell.subMenuSwitch(item, subitem, curRouterName)">{{subitem.name}}</a>
+                    </div>
+                </section>
+            </li>
+        </ul>
+        <a class="help" href="xxx" target="_blank">帮助</a>
+        <span class="devide-line">|</span>
+        <div class="user-info">
+            <span ng-cloak>
+                {{userInfo.username}}
+                <i class="fa fa-lg fa-angle-down"></i>
+            </span>
+            <section>
+                <i class="fa fa-sign-out"></i>
+                <a href="xxxx">退出系统</a>
+            </section>
+        </div>
+    </div>
+</header>
+

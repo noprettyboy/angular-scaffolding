@@ -1,0 +1,54 @@
+@import (reference) "../../../style/variables.less";
+
+.pt-view {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    > nav {
+        span {
+            &:nth-child(3) {
+                float: right;
+                font-size: 16px !important;
+                font-weight: 700;
+                color: @warn-color2;
+            }
+        }
+    }
+    > div {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        margin: 10px 0;
+        .border;
+        > nav {
+            height: 31px;
+            line-height: 31px;
+            padding: 0 0 0 25px;
+            border-bottom: @border-type @border-width @border-color;
+            > span {
+                cursor: pointer;
+                margin-right: 20px;
+                opacity: .6;
+                .transition;
+                &:hover {
+                    opacity: 1;
+                    color: @font-hover-color;
+                }
+                &.active {
+                    cursor: default;
+                    font-size: 15px;
+                    opacity: 1;
+                    color: @font-active-color;
+                }
+            }
+        }
+        > div {
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+    }
+}

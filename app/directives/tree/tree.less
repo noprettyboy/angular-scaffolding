@@ -1,0 +1,298 @@
+@import (reference) '../../style/variables.less';
+
+.ui-tree {
+    padding: 10px;
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    &> ul {
+        margin: 0;
+    }
+
+    .node-item {
+        font-size: 14px;
+        cursor: pointer;
+
+        [role="node-switcher"] {
+            position: relative;
+            margin: 0;
+            width: 1em;
+            height: 1em;
+            line-height: 1em;
+            display: inline-block;
+            vertical-align: middle;
+            border: 0 none;
+            cursor: pointer;
+            outline: none;
+            text-align: center;
+        }
+
+        .ui-tree-switcher:after {
+            position: absolute;
+            content: " ";
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-width: 4px 5px;
+            border-style: solid;
+            border-color: transparent transparent transparent @font-color;
+            transition: transform .3s;
+        }
+
+        &.collapsed > .node-info {
+            &> .ui-tree-switcher:after {
+                transform: translate(-25%, -50%);
+            }
+        }
+
+        &.expanded > .node-info {
+            &> .ui-tree-switcher:after {
+                transform: translate(-25%, -50%) rotate(90deg);
+            }
+        }
+
+        &> ul {
+            overflow: hidden;
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        &> .node-info .node-name {
+            padding: 1px 5px;
+            border-radius: 2px;
+        }
+
+        &.selected > .node-info .node-name {
+            // background: @bg-primary-color;
+            background-color: @active-color2;
+            color: #fff;
+            transition: all .25s linear;
+        }
+
+        &:not(.selected) > .node-info .node-name:hover {
+            color: @font-primary-color;
+        }
+
+        .node-info {
+            position: relative;
+            line-height: 25px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &:hover {
+                .node-actions i {
+                    display: inline-block;
+                }
+            }
+            .node-actions i {
+                display: none;
+            }
+        }
+
+        input[type="text"] {
+            border-radius: 0;
+            width: auto;
+            box-sizing: border-box;
+        }
+    }
+
+    .node-leaf .ui-tree-switcher {
+        display: none;
+    }
+
+    .animation-show {
+        transition: all linear 1s;
+        opacity: 1;
+    }
+
+    .animate-show.ng-hide-add.ng-hide-add-active,
+    .animate-show.ng-hide-remove.ng-hide-remove-active {
+        transition: all linear 0.5s;
+    }
+
+    .animation-show.ng-hide {
+        height: 0;
+        opacity: 0;
+        display: block !important;
+    }
+
+    .custom-checkbox {
+        border: 1px solid @border-color;
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        position: relative;
+        top: 3px;
+        border-radius: 2px;
+        box-sizing: border-box;
+        &:hover {
+            border-color: @border-hover-color;
+        }
+
+        &.checked:after,
+        &.checked-part:after {
+            position: absolute;
+            content: '';
+            left: 3px;
+            top: 0;
+            width: 4px;
+            height: 8px;
+            border-right: 2px solid #0f88eb;
+            border-bottom: 2px solid #0f88eb;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+
+        &.checked-part {
+            background: #ddd;
+        }
+
+    }
+
+    .node-info {
+        &.insert-in {
+            background: #0f88eb;
+        }
+
+        &.insert-before {
+            border-top: 1px solid #0f88eb;
+        }
+
+        &.insert-after {
+            border-bottom: 1px solid #0f88eb;
+        }
+    }
+
+    .insert-arrow {
+        position: absolute;
+        content: '';
+        left: -10px;
+        top: 0;
+        border-top: 2px solid #0f88eb;
+        border-right: 2px solid #0f88eb;
+        width: 6px;
+        height: 6px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        display: none;
+    }
+
+    .insert-before .insert-arrow {
+        top: 0;
+        display: block;
+    }
+
+    .insert-in .insert-arrow {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        display: block;
+    }
+
+    .insert-after .insert-arrow {
+        top: auto;
+        bottom: 0;
+        display: block;
+    }
+}
+
+.ui-tree.ui-tree-menu {
+    padding: 0;
+    ul {
+        padding-left: 0;
+    }
+    li {
+        padding-left: 0;
+    }
+    li[level='1'] {
+        .node-info {
+            padding-left: 18px;
+        }
+    }
+    li[level='2'] {
+        .node-info {
+            padding-left: 36px;
+        }
+    }
+    li[level='3'] {
+        .node-info {
+            padding-left: 54px;
+        }
+    }
+    li[level='4'] {
+        .node-info {
+            padding-left: 72px;
+        }
+    }
+    .node-item {
+        font-size: 12px;
+        font-weight: 400;
+        &.selected {
+            &> .node-info {
+                background: @bg-color;
+                color: @font-primary-color;
+                outline: none;
+                .node-name {
+                    background: transparent;
+                    color: @font-primary-color;
+                    outline: none;
+                }
+            }
+        }
+    }
+    .node-name {
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+.ui-tree.ui-tree-show-line {
+    .node-item {
+        position: relative;
+
+        .node-info {
+            &> .ui-tree-switcher {
+                border: 1px solid @border-color;
+                box-sizing: border-box;
+                border-radius: 2px;
+
+                &:before,
+                &:after {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    content: " ";
+                    width: .6em;
+                    height: 1px;
+                    background: @bg-color;
+                    border: none;
+                    transform: translate(-50%, -50%);
+                }
+                &:after {
+                    transform: translate(-50%, -50%) rotate(90deg);
+                }
+            }
+        }
+
+        &.expanded > .node-info {
+             &> .ui-tree-switcher:after {
+                 display: none;
+             }
+        }
+    }
+
+    li:not(:last-child):before {
+        position: absolute;
+        content: " ";
+        width: 1px;
+        border-left: 1px solid @border-color;
+        height: calc(~'100% - 14px');
+        top: 0px;
+        left: .5em;
+        margin: 20px 0;
+    }
+}

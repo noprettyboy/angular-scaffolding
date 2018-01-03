@@ -1,0 +1,24 @@
+<section class="upload-box">
+    <input type="file" class="file-elem">
+    <button type="button" class="cm-btn browser-btn" ng-class="{true: 'cm-hl-btn', false: 'cm-disable-btn'}[uploadData.browserBtnAble]" ng-disabled="!uploadData.browserBtnAble" ng-click="browserFile($event)">浏览</button>
+    <div class="file-path">
+        <span class="init" ng-if="uploadData.status=='init'">{{uploadData.note}}</span>
+        <span class="error" ng-if="uploadData.status=='error'">{{uploadData.note}}</span>
+        <span class="correct" ng-if="uploadData.status=='correct'">{{uploadData.filePath}}</span>
+        <span class="success" ng-if="uploadData.status=='success'">{{uploadData.filePath}}</span>
+        <label class="success-watch" ng-mouseover="watchImg($event, uploadData)" ng-mouseout="hideImg($event)" ng-if="uploadData.status=='successAndWatch'&&uploadData.watch!==false">
+            <span class="name">{{getFileName(uploadData.filePath)}}</span>
+            <section class="img-detail">
+                <img>
+            </section>
+        </label>
+        <label class="success-show" ng-if="uploadData.status=='successAndWatch'&&uploadData.watch===false">
+            <span class="name">{{getFileName(uploadData.filePath)}}</span>
+        </label>
+    </div>
+<!--     <section class="img-detail">
+        <img>
+    </section> -->
+    <button type="button" class="cm-btn upload-btn" ng-class="{true: 'cm-hl-btn', false: 'cm-disable-btn'}[uploadData.uploadBtnAble]" ng-disabled="!uploadData.uploadBtnAble" ng-click="uploadFile($event)">上传</button>
+    <span class="after-upload-note" ng-if="uploadData.status=='successAndWatch'&&uploadData.note!==''&&uploadData.note!==undefined">{{uploadData.note}}</span>
+</section>

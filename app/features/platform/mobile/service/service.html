@@ -1,0 +1,238 @@
+<div class="mobile-service-view">
+    <nav>
+        <label class="cm-radio" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.curRange=='myservice']">
+            <input type="radio" value="myservice" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.curRange=='myservice']" ng-model="pfMobileService.serviceInfo.curRange" ng-change="pfMobileService.serviceInfo.etFunc.serviceRangeChanged('myservice')">
+            我的
+        </label>
+        <label class="cm-radio" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.curRange=='allservice']">
+            <input type="radio" value="allservice" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.curRange=='allservice']" ng-model="pfMobileService.serviceInfo.curRange" ng-change="pfMobileService.serviceInfo.etFunc.serviceRangeChanged('allservice')">
+            所有
+        </label>
+    </nav>
+    <div>
+        <div class="cm-search-area">
+            <div class="cm-sch-item">
+                <span class="filter-note">请输入筛选条件>></span>
+                <div class="cm-basic-item">
+                    <label>
+                        <span>ID:</span>
+                        <input type="text" class="cm-input-text" ng-model="pfMobileService.serviceInfo.schConf.commSch.id" ng-change="pfMobileService.serviceInfo.etFunc.serviceFilter()">
+                    </label>
+                </div>
+                <div class="cm-basic-item">
+                    <label>
+                        <span>名称:</span>
+                        <input type="text" class="cm-input-text" ng-model="pfMobileService.serviceInfo.schConf.commSch.name" ng-change="pfMobileService.serviceInfo.etFunc.serviceFilter()">
+                    </label>
+                </div>
+                <div class="cm-basic-item">
+                    <label>
+                        <span>创建者:</span>
+                        <input type="text" class="cm-input-text" ng-model="pfMobileService.serviceInfo.schConf.commSch.username" ng-change="pfMobileService.serviceInfo.etFunc.serviceFilter()">
+                    </label>
+                </div>
+                <!-- <span class="cm-btn cm-hl-btn" ng-click="pfMobileService.serviceInfo.etFunc.serviceSearch()">筛选</span> -->
+            </div>
+        </div>
+        <div class="table-action" ng-if="pfMobileService.serviceInfo.curRange=='myservice'">
+            <span class="cm-btn cm-hl-btn" ng-click="pfMobileService.serviceInfo.etFunc.servicePub()">发布</span>
+        </div>
+        <div class="for-all-service" ng-if="pfMobileService.serviceInfo.curRange=='allservice'">
+            <div class="cm-table-area">
+                <div class="table-ct">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="6%">ID</th>
+                                <th width="16%">名称</th>
+                                <th width="10%">平台</th>
+                                <th width="12%">提交时间</th>
+                                <th width="10%">创建者</th>
+                                <th width="8%">超时时间</th>
+                                <th width="20%">描述</th>
+                                <th width="10%">类型</th>
+                                <th width="8%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-class="{1: 'cm-odd'}[$index%2]" ng-repeat="service in pfMobileService.serviceInfo.data.allServiceData.list">
+                                <td>{{service.id}}</td>
+                                <td>{{service.name}}</td>
+                                <td>{{service.platformName}}</td>
+                                <td>{{service.gmtCreated}}</td>
+                                <td>{{service.creator}}</td>
+                                <td>{{service.overtime}}</td>
+                                <td>{{service.info}}</td>
+                                <td>{{service.testType}}</td>
+                                <td class="operate-col">
+                                    <div>
+                                        <!-- <span ng-click="pfMobileService.serviceInfo.etFunc.dealService('debug', service)" ng-if="service.releaseStatus!=='release'">调试发布</span> -->
+                                        <span ng-click="pfMobileService.serviceInfo.etFunc.dealService('edit', service)">编辑</span>
+                                        <span ng-click="pfMobileService.serviceInfo.etFunc.dealService('modify', service)">修改代码</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <pagination info="pfMobileService.serviceInfo.data.allServiceData.pageInfo" on-change="pfMobileService.pPfSpecialServiceListpageChangeHandle"></pagination> -->
+            </div>
+        </div>
+        <div class="for-my-service" ng-if="pfMobileService.serviceInfo.curRange=='myservice'">
+            <div class="cm-table-area">
+                <div class="table-ct">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="6%">ID</th>
+                                <th width="16%">名称</th>
+                                <th width="10%">平台</th>
+                                <th width="12%">提交时间</th>
+                                <th width="10%">创建者</th>
+                                <th width="8%">超时时间</th>
+                                <th width="20%">描述</th>
+                                <th width="10%">类型</th>
+                                <th width="8%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-class="{1: 'cm-odd'}[$index%2]" ng-repeat="service in pfMobileService.serviceInfo.data.myServiceData.list">
+                                <td>{{service.id}}</td>
+                                <td>{{service.name}}</td>
+                                <td>{{service.platformName}}</td>
+                                <td>{{service.gmtCreated}}</td>
+                                <td>{{service.creator}}</td>
+                                <td>{{service.overtime}}</td>
+                                <td>{{service.info}}</td>
+                                <td>{{service.testType}}</td>
+                                <td class="operate-col">
+                                    <div>
+                                        <!-- <span ng-click="pfMobileService.serviceInfo.etFunc.dealService('debug', service)" ng-if="service.releaseStatus!=='release'">调试发布</span> -->
+                                        <span ng-click="pfMobileService.serviceInfo.etFunc.dealService('edit', service)">编辑</span>
+                                        <span ng-click="pfMobileService.serviceInfo.etFunc.dealService('modify', service)">修改源代码</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <pagination info="pfMobileService.serviceInfo.data.myServiceData.pageInfo" on-change="pfMobileService.pPfMyServiceListpageChangeHandle"></pagination> -->
+            </div>
+        </div>
+    </div>
+</div>
+<div modal-panel class="m-service-pub-panel" my-data="pfMobileService.serviceInfo.panelConf.servicePub">
+    <div class="for-pubservice">
+        <div class="pubservice-info-area">
+            <form class="upload-test-type-info-form" name="pubMServiceForm">
+                <div class="form-item">
+                    <span class="title">
+                        <i class="cm-necessary-tag">*</i>
+                        测试平台:
+                    </span>
+                    <label class="cm-radio" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.pubConf.createInfo.step1.platformName=='android']">
+                        <input type="radio" value="android" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.pubConf.createInfo.step1.platformName=='android']" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.platformName" ng-change="pfMobileService.serviceInfo.pubConf.etFunc.testPlatFormChange('android')">
+                        Android
+                    </label>
+                    <label class="cm-radio" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.pubConf.createInfo.step1.platformName=='ios']">
+                        <input type="radio" value="ios" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.pubConf.createInfo.step1.platformName=='ios']" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.platformName" ng-change="pfMobileService.serviceInfo.pubConf.etFunc.testPlatFormChange('ios')">
+                        Ios
+                    </label>
+                </div>
+                <label class="form-item">
+                    <span class="title">
+                        <i class="cm-necessary-tag">*</i>
+                        测试服务名称:
+                    </span>
+                    <input type="text" class="cm-input-text" name="name" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.name" placeholder="数字、字母、汉字,不超过22个字符" required ng-maxlength="22" ng-pattern="/^[a-zA-Z0-9\u4E00-\u9FA5]*$/">
+                    <span class="cm-form-error" ng-show="pubMServiceForm.name.$error.required">必填</span>
+                    <span class="cm-form-error" ng-show="pubMServiceForm.name.$error.maxlength">超长</span>
+                    <span class="cm-form-error" ng-show="pubMServiceForm.name.$error.pattern">不符合规范</span>
+                </label>
+                <div class="form-item">
+                    <span class="title">
+                        <i class="cm-necessary-tag">*</i>
+                        测试服务描述:
+                    </span>
+                    <textarea type="textarea" name="info" class="cm-input-text textarea-text" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.info" placeholder="请描述该服务的测试场景、测试内容" required>
+                    </textarea>
+                    <span class="cm-form-error" ng-show="pubMServiceForm.info.$error.required">必填</span>
+                </div>
+                <div class="form-item" ng-if="pfMobileService.serviceInfo.curAction=='create'">
+                    <span class="title">
+                        <i class="cm-necessary-tag">*</i>
+                        请选择源代码文件:
+                    </span>
+                    <section class="upload-file-text" upload upload-data="pfMobileService.serviceInfo.pubConf.uploadConf.sourceFileUpload" my-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.filePath"></section>
+                    <input type="hidden" name="filePath" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.filePath" required>
+                    <span class="cm-form-error" ng-show="pubMServiceForm.filePath.$error.required">必选</span>
+                </div>
+                <label class="form-item" ng-if="pfMobileService.serviceInfo.curAction=='create'">
+                    <span class="title">
+                        <i class="cm-necessary-tag">*</i>
+                        完整类名:
+                    </span>
+                    <input type="text" class="cm-input-text" name="className" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.className" required>
+                    <span class="cm-form-error" ng-show="pubMServiceForm.className.$error.required">必填</span>
+                </label>
+                <label class="form-item">
+                    <span class="title">
+                        <i class="cm-necessary-tag">*</i>
+                        超时时间(s):
+                    </span>
+                    <input type="text" class="cm-input-text" name="overtime" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.overtime" required ng-pattern="/^[0-9]*$/">
+                    <span class="cm-form-error" ng-show="pubMServiceForm.overtime.$error.required">必填</span>
+                    <span class="cm-form-error" ng-show="pubMServiceForm.overtime.$error.pattern">不符合规范</span>
+                </label>
+                <div class="form-item">
+                    <span class="title">
+                        <i class="cm-necessary-tag">*</i>
+                        测试类型:
+                    </span>
+                    <label class="cm-radio" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.pubConf.createInfo.step1.testType=='normal']" ng-if="pfMobileService.serviceInfo.pubConf.createInfo.step1.platformName=='android'">
+                        <input type="radio" value="normal" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.pubConf.createInfo.step1.testType=='normal']" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.testType">
+                        普通（非Appium）
+                    </label>
+                    <label class="cm-radio" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.pubConf.createInfo.step1.testType=='appium']" ng-if="pfMobileService.serviceInfo.pubConf.createInfo.step1.platformName=='ios'">
+                        <input type="radio" value="appium" ng-class="{true: 'checked'}[pfMobileService.serviceInfo.pubConf.createInfo.step1.testType=='appium']" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.testType">
+                        Appium
+                    </label>
+                </div>
+                <div class="form-item tree-item" ng-if="pfMobileService.serviceInfo.curAction=='create'">
+                    <span class="title">
+                        <i class="cm-necessary-tag">*</i>
+                        请选择产品线:
+                    </span>
+                    <div>
+                        <div class="tree-view-ct">
+                            <treeview data="pfMobileService.serviceInfo.data.treeData"
+                                selected-nodes="pfMobileService.serviceInfo.pubConf.otherInfo.pubForProduct"
+                                on-select="pfMobileService.serviceInfo.etFunc.productSelect"
+                                collapsed="true"
+                                show-line="true"
+                                ng-if="pfMobileService.serviceInfo.data.treeData.length>0">
+                            </treeview>
+                            <span class="note" ng-if="pfMobileService.serviceInfo.data.treeData.length==0">暂无数据!</span>
+                        </div>
+                    </div>
+                    <input type="hidden" name="product" ng-model="pfMobileService.serviceInfo.pubConf.createInfo.step1.productId" required>
+                    <span class="cm-form-error" ng-show="pubMServiceForm.product.$error.required">必选</span>
+                </div>
+            </form>
+        </div>
+        <div class="private-btn-area">
+            <button type="button" class="cm-btn cm-hl-btn btn-text" ng-disabled="pubMServiceForm.$invalid" ng-click="pfMobileService.serviceInfo.pubConf.etFunc.serviceBuild('save')" ng-if="pfMobileService.serviceInfo.curAction=='create'">保存</button>
+            <button type="button" class="cm-btn cm-hl-btn btn-text" ng-disabled="pubMServiceForm.$invalid" ng-click="pfMobileService.serviceInfo.pubConf.etFunc.serviceBuild('update')" ng-if="pfMobileService.serviceInfo.curAction=='edit'">更新</button>
+            <button type="button" class="cm-btn btn-text" ng-click="pfMobileService.serviceInfo.pubConf.etFunc.serviceBuild('close')">关闭</button>
+        </div>
+    </div>
+</div>
+<div modal-panel class="class-code-panel" my-data="pfMobileService.serviceInfo.panelConf.classCode">
+    <div class="center">
+        <div id="codeView" class="code-view"></div>
+    </div>
+    <div class="private-btn-area">
+        <span class="cm-btn cm-hl-btn btn-text" ng-if="pfMobileService.serviceInfo.curAction=='modify'" ng-click="pfMobileService.serviceInfo.pubConf.etFunc.serviceClassDeal('save')">更新</span>
+        <span class="cm-btn btn-text" ng-click="pfMobileService.serviceInfo.pubConf.etFunc.serviceClassDeal('close')">关闭</span>
+    </div>
+</div>

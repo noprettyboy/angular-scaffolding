@@ -1,0 +1,653 @@
+@import (reference) "../../../../style/variables.less";
+
+.mobile-service-view {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    > nav {
+        line-height: 30px;
+        padding: 0 0 0 40px;
+        border-bottom: @border-type @border-width @border-color;
+    }
+    > div {
+        // padding: 5px 20px;
+        .cm-search-area {
+            padding: 0 0 0 20px;
+            border-bottom: @border-type @border-width @border-color;
+            > div {
+                padding: 0 0;
+                margin: 5px 0 5px 0;
+                .cm-basic-item {
+                    margin-right: 10px;
+                    > label {
+                        > span {
+                            width: auto;
+                        }
+                    }
+                }
+                .cm-btn {
+                    margin: 0 0 0 20px;
+                }
+                .filter-note {
+                    margin: 0 10px 0 4px;
+                    font-size: 13px;
+                    color: @warn-color;
+                }
+            }
+        }
+        .table-action {
+            margin: 5px 0 0 0;
+            padding: 0 0 0 20px;
+        }
+        .for-all-service {
+            padding: 5px 20px;
+            .cm-table-area {
+                table > tbody > tr > td {
+                    &.operate-col {
+                        > div {
+                            display: -webkit-flex;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            flex-wrap: wrap;
+                            > span {
+                                cursor: pointer;
+                                margin: 0 5px;
+                                opacity: .8;
+                                color: @font-link-color;
+                                &:hover {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .for-my-service {
+            padding: 5px 20px;
+            .cm-table-area {
+                table > tbody > tr > td {
+                    &.operate-col {
+                        > div {
+                            display: -webkit-flex;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            flex-wrap: wrap;
+                            > span {
+                                cursor: pointer;
+                                margin: 0 5px;
+                                opacity: .8;
+                                color: @font-link-color;
+                                &:hover {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.m-service-pub-panel {
+    .center {
+        padding: 0 0 !important;
+    }
+    .for-pubservice {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        .pubservice-info-area {
+            display: -webkit-flex;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            width: 90%;
+            margin: 10px auto 10px auto;
+            overflow-y: auto;
+            .border;
+            .upload-test-type-info-form {
+                display: -webkit-flex;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex: 1;
+                margin: 20px 0;
+                .form-item {
+                    box-sizing: border-box;
+                    line-height: 35px;
+                    width: 100%;
+                    margin-bottom: @margin-value;
+                    &.btn-item {
+                        text-align: center;
+                        .btn-text {
+                            margin-left: 15px;
+                        }
+                    }
+                    .title {
+                        display: inline-block;
+                        text-align: right;
+                        width: 20%;
+                        margin-right: @margin-value;
+                    }
+                    .upload-file-text {
+                        display: inline-block;
+                    }
+                    .cm-input-text {
+                        width: 64%;
+                        &.textarea-text {
+                            vertical-align: top;
+                            height: 50px;
+                        }
+                    }
+                    .checkbox-text-item {
+                        padding-right: 10px;
+                    }
+                    .select-box {
+                        width: 64%;
+                        vertical-align: top;
+                    }
+                    .cm-checkbox {
+                        margin-right: 10px;
+                    }
+                    &.tree-item {
+                        > span {
+                            vertical-align: top;
+                        }
+                        > div {
+                            display: inline-block;
+                            overflow: auto;
+                            width: 64%;
+                            min-height: 100px;
+                            max-height: 230px;
+                            padding: 0 10px;
+                            border-radius: @border-radius;
+                            .border;
+                        }
+                    }
+                }
+                .form-divide-line {
+                    width: 100%;
+                    margin: 30px 0;
+                    border-top: dashed @border-width @border-color;
+                }
+            }
+        }
+        .private-btn-area {
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            height: 40px;
+            border-top: @border-type @border-width @border-color;
+            .cm-btn {
+                margin: 0 10px;
+            }
+        }
+    }
+    .for-pubservice-step2 {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        .pubservice-info-area {
+            display: -webkit-flex;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            width: 90%;
+            margin: 10px auto 10px auto;
+            overflow-y: auto;
+            .border;
+            > span {
+                font-size: 16px;
+                margin: 5px 10px;
+                color: @font-warn-color;
+            }
+            .upload-test-type-info-form {
+                display: -webkit-flex;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex: 1;
+                margin: 20px 0;
+                .form-item {
+                    box-sizing: border-box;
+                    line-height: 35px;
+                    width: 100%;
+                    margin-bottom: @margin-value;
+                    > span {
+                        &:first-child {
+                            display: inline-block;
+                            text-align: right;
+                            width: 20%;
+                            margin-right: @margin-value;
+                        }
+                    }
+                    &:nth-child(4) {
+                        > span {
+                            &:first-child {
+                                > span {
+                                    cursor: pointer;
+                                    padding: 0 5px;
+                                    font-weight: 700;
+                                    color: @font-alarm-color;
+                                }
+                            }
+                        }
+                    }
+                    &.btn-item {
+                        text-align: center;
+                        .btn-text {
+                            margin-left: 15px;
+                        }
+                    }
+                    .cm-input-text {
+                        width: 64%;
+                        &.textarea-text {
+                            vertical-align: top;
+                            height: 50px;
+                        }
+                    }
+                    .select-box {
+                        width: 64%;
+                        vertical-align: top;
+                    }
+                    .cm-checkbox {
+                        margin-right: 10px;
+                    }
+                }
+                .form-divide-line {
+                    width: 100%;
+                    margin: 30px 0;
+                    border-top: dashed @border-width @border-color;
+                }
+            }
+        }
+        .private-btn-area {
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            height: 40px;
+            border-top: @border-type @border-width @border-color;
+            .cm-btn {
+                margin: 0 10px;
+            }
+        }
+    }
+    .for-pubservice-step3 {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        .pubservice-info-area {
+            display: -webkit-flex;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            width: 90%;
+            padding: 0 10px;
+            margin: 10px auto 10px auto;
+            overflow-y: auto;
+            .border;
+            > section {
+                position: relative;
+                &:first-child {
+                    margin: 5px 0;
+                    > div {
+                        display: -webkit-flex;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        > div {
+                            display: inline-block;
+                            width: auto;
+                            margin: 0 15px 0 0;
+                            line-height: 35px;
+                            > span {
+                                &:first-child {
+                                    margin: 0 5px 0 0;
+                                }
+                                &:nth-child(2) {
+                                    color: @font-color;
+                                }
+                            }
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    .border;
+                    > div {
+                        > div {
+                            padding: 0 10px;
+                            line-height: 35px;
+                            &:first-child {
+                                border-bottom: @border-type @border-width @border-color;
+                                > span {
+                                    &:first-child {
+                                        margin: 0 5px 0 0;
+                                    }
+                                    &:nth-child(2) {
+                                        margin: 0 5px 0 0;
+                                    }
+                                    &:nth-child(3) {
+                                        margin: 0 5px 0 0;
+                                    }
+                                    &:nth-child(4) {
+                                        margin: 0 5px 0 0;
+                                    }
+                                    &:nth-child(5) {
+                                        margin: 0 5px 0 0;
+                                    }
+                                    &:nth-child(6) {
+                                        color: @font-succ-color;
+                                    }
+                                    &:nth-child(7) {
+                                        margin: 0 5px 0 0;
+                                        font-weight: 700;
+                                        color: @font-succ-color;
+                                    }
+                                    &:nth-child(8) {
+                                        color: @font-alarm-color;
+                                    }
+                                    &:nth-child(9) {
+                                        margin: 0 5px 0 0;
+                                        font-weight: 700;
+                                        color: @font-alarm-color;
+                                    }
+                                    &:nth-child(11) {
+                                        font-weight: 700;
+                                    }
+                                    &:nth-child(12) {
+                                        margin: 0 0 0 25px;
+                                        font-weight: 700;
+                                        &.succ-status {
+                                            color: @font-succ-color;
+                                        }
+                                        &.fail-status {
+                                            color: @font-alarm-color;
+                                        }
+                                    }
+                                }
+                            }
+                            &:nth-child(2) {
+                                padding: 10px 10px;
+                                .data-item {
+                                    margin: 0 0 10px 0;
+                                    border: @border-type @border-width @bg-reverse-color;
+                                    // .transition;
+                                    &.hl-status {
+                                        border: @border-type @border-width @primary-color;
+                                    }
+                                    &:last-child {
+                                        margin: 0 0 0 0;
+                                    }
+                                    > div {
+                                        padding: 0 10px;
+                                        &:first-child {
+                                            box-sizing: border-box;
+                                            background-color: @bg-reverse-color;
+                                            > span {
+                                                &:first-child {
+                                                    margin: 0 5px 0 0;
+                                                }
+                                                &:nth-child(2) {
+                                                    margin: 0 30px 0 0;
+                                                    color: @font-color;
+                                                }
+                                                &:nth-child(3) {
+                                                    margin: 0 5px 0 0;
+                                                }
+                                                &:nth-child(4) {
+                                                    color: @font-succ-color;
+                                                }
+                                                &:nth-child(5) {
+                                                    font-weight: 700;
+                                                    color: @font-succ-color;
+                                                }
+                                                &:nth-child(6) {
+                                                    color: @font-alarm-color;
+                                                }
+                                                &:nth-child(7) {
+                                                    font-weight: 700;
+                                                    color: @font-alarm-color;
+                                                }
+                                                &:nth-child(9) {
+                                                    font-weight: 700;
+                                                }
+                                                &:nth-child(10) {
+                                                    margin: 0 0 0 25px;
+                                                    font-weight: 700;
+                                                    &.succ-status {
+                                                        color: @font-succ-color;
+                                                    }
+                                                    &.fail-status {
+                                                        color: @font-alarm-color;
+                                                    }
+                                                }
+                                                &:nth-child(11) {
+                                                    float: right;
+                                                    opacity: .6;
+                                                    &:hover {
+                                                        opacity: 1;
+                                                    }
+                                                    > i {
+                                                        cursor: pointer;
+                                                        .transition;
+                                                        &.open-tag-fa {
+                                                            transform: rotate(180deg);
+                                                            -ms-transform: rotate(180deg);
+                                                            -webkit-transform: rotate(180deg);
+                                                            -o-transform: rotate(180deg);
+                                                            -moz-transform: rotate(180deg);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        &:nth-child(2) {
+                                            display: none;
+                                            > div {
+                                                margin: 10px 0;
+                                                padding: 0 10px;
+                                                border: dashed 2px @bg-reverse-color;
+                                                > div {
+                                                    &:first-child {
+                                                        > span {
+                                                            display: inline-block;
+                                                            &:first-child {
+                                                                margin-right: 5px;
+                                                            }
+                                                            &:nth-child(2) {
+                                                                margin-right: 10px;
+                                                                color: @font-color;
+                                                            }
+                                                            &:nth-child(3) {
+                                                                margin-right: 5px;
+                                                            }
+                                                            &:nth-child(4) {
+                                                                margin-right: 10px;
+                                                                color: @font-color;
+                                                            }
+                                                            &:nth-child(5) {
+                                                                margin-right: 5px;
+                                                            }
+                                                            &:nth-child(6) {
+                                                                text-align: center;
+                                                                width: 50px;
+                                                                margin-right: 10px;
+                                                                font-weight: 700;
+                                                                &.succ-status {
+                                                                    color: @font-succ-color;
+                                                                }
+                                                                &.fail-status {
+                                                                    color: @font-alarm-color;
+                                                                }
+                                                            }
+                                                            &:nth-child(7) {
+                                                                margin-right: 5px;
+                                                            }
+                                                            &:nth-child(8) {
+                                                                color: @font-color;
+                                                            }
+                                                        }
+                                                    }
+                                                    &:nth-child(2) {
+                                                        display: -webkit-flex;
+                                                        display: flex;
+                                                        flex-direction: row;
+                                                        > span {
+                                                            width: 60px;
+                                                            margin-right: 5px;
+                                                        }
+                                                        > div {
+                                                            flex: 1;
+                                                            display: inline-block;
+                                                            overflow-y: auto;
+                                                            max-height: 200px;
+                                                            line-height: 25px;
+                                                            padding: 5px 10px;
+                                                            margin-top: 5px;
+                                                            background-color: @bg-reverse-color;
+                                                            > span {
+                                                                display: block;
+                                                                > i {
+                                                                    margin-right: 5px;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    &:nth-child(3) {
+                                                        display: -webkit-flex;
+                                                        display: flex;
+                                                        flex-direction: row;
+                                                        margin-bottom: 10px;
+                                                        > span {
+                                                            width: 60px;
+                                                            margin-right: 5px;
+                                                        }
+                                                        > div {
+                                                            flex: 1;
+                                                            display: inline-block;
+                                                            padding: 5px 10px;
+                                                            margin-top: 5px;
+                                                            background-color: @bg-reverse-color;
+                                                            // display: -webkit-flex;
+                                                            // display: flex;
+                                                            // flex-direction: row;
+                                                            // flex-wrap: wrap;
+                                                            > span {
+                                                                display: block;
+                                                                width: 100%;
+                                                            }
+                                                            > div {
+                                                                display: inline-block;
+                                                                height: auto;
+                                                                width: auto;
+                                                                background-color: #FFF;
+                                                                margin: 5px;
+                                                                img {
+                                                                    height: 200px;
+                                                                    margin: 5px;
+                                                                    &.big-img {
+                                                                        width: 300px;
+                                                                        height: 530px;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &:nth-child(3) {
+                    margin-bottom: 20px;
+                    .run-note {
+                        text-align: center;
+                        margin-top: 30px;
+                        font-size: 16px;
+                        > span {
+                        }
+                        > img {
+                            margin: -3px 0 0 5px;
+                        }
+                    }
+                    .fail-note {
+                        text-align: center;
+                        margin-top: 30px;
+                        font-size: 16px;
+                        color: @alarm-color;
+                    }
+                    .succ-note {
+                        margin-top: 20px;
+                        > span {
+                            font-size: 16px;
+                            color: @warn-color;
+                            > i {
+                                margin-left: 10px;
+                                font-weight: 700;
+                                color: @font-color;
+                            }
+                        }
+                        > div {
+                            margin-top: 5px;
+                            padding: 0 10px;
+                            .border;
+                        }
+                    }
+                }
+            }
+        }
+        .private-btn-area {
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            height: 40px;
+            border-top: @border-type @border-width @border-color;
+            .cm-btn {
+                margin: 0 10px;
+            }
+        }
+    }
+}
+.class-code-panel {
+    .center {
+        overflow-y: auto;
+        padding: 0 0 !important;
+        .code-view {
+            height: 100%;
+            .CodeMirror {
+                height: 100% !important;
+                min-height: 100%;
+            }
+        }
+        .private-btn-area {
+            display: -webkit-flex;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            height: 40px;
+            // padding: 0 20px;
+            border-top: @border-type @border-width @border-color;
+            > span {
+                margin: 0 10px;
+            }
+        }
+    }
+}

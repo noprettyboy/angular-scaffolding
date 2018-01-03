@@ -1,0 +1,24 @@
+<div class="index-view">
+    <div class="index-ct">
+        <section class="carousel-ct">
+            <div carousel my-carousel-data="index.carouselData"></div>
+        </section>
+        <section class="other-ct">
+            <div class="section-item run-data">
+                <div class="section-title">
+                    <span>运行数据</span>
+                </div>
+                <div class="rd-ct">
+                    <div class="rd-item">
+                        <div class="rd-value">{{index.indexInfo.summaryData.interCallNum/10000|number:0}}W</div>
+                        <div class="rd-text">调用次数</div>
+                    </div>
+                    <div class="rd-item">
+                        <div class="rd-value">{{index.indexInfo.summaryData.testServiceNum}}</div>
+                        <div class="rd-text">服务数</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
